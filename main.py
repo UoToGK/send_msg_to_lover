@@ -362,7 +362,7 @@ if __name__ == "__main__":
     config["template_id"] = template_id
     config["weather_key"] = weather_key
     config["tian_api"] = tian_api
-    print(app_id, app_secret)
+    print("获取 app_id ,app_secret失败，请检查app_id和app_secret是否正确", app_id, app_secret)
     # 获取accessToken
     accessToken = get_access_token()
     # 接收的用户
