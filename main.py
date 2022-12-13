@@ -212,7 +212,12 @@ def case_youdao():
         + "&update=auto&apiversion=5.0"
     )
     result = {}
-    res = get(yd_url).json()
+    headers = {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+    }
+    res = get(yd_url, headers=headers).json()
     for record in res[today]:
         if record["type"] == "壹句":
             result["date"] = today
