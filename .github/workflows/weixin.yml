@@ -29,10 +29,10 @@ jobs:
           pip3 install -r requirements.txt
       - name: weixin
         env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_SECRET: ${{ secrets.APP_SECRET }}
-          TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
-          WEATHER_KEY: ${{ secrets.WEATHER_KEY }}
-          TIAN_API: ${{ secrets.TIAN_API }}
+          APP_ID: ${{ secrets.app_id }}
+          APP_SECRET: ${{ secrets.app_secret }}
+          TEMPLATE_ID: ${{ secrets.template_id }}
+          WEATHER_KEY: ${{ secrets.weather_key }}
+          TIAN_API: ${{ secrets.tian_api }}
         run: |
           python3 main.py
