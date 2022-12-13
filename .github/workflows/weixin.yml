@@ -14,12 +14,12 @@ jobs:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
     steps:
-      - name: "Checkout codes"
+      - name: Checkout codes
         uses: actions/checkout@v2
-      - name: "Set python"
+      - name: Set python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
-          python-version: "3.10"
+          python-version: ${{ matrix.python-version }}
       - name: Set timezone
         run: |
           cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
