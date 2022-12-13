@@ -1,0 +1,6 @@
+output
+bak*
+.vscode
+*.bat
+*.vbs
+*.ico
