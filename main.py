@@ -341,11 +341,11 @@ def send_message(
 
 
 if __name__ == "__main__":
-    app_id = os.environ.get("app_id")
-    app_secret = os.environ.get("app_secret")
-    template_id = os.environ.get("template_id")
-    weather_key = os.environ.get("weather_key")
-    tian_api = os.environ.get("tian_api")
+    app_id = os.environ.get("APP_ID")
+    app_secret = os.environ.get("APP_SECRET")
+    template_id = os.environ.get("TEMPLATE_ID")
+    weather_key = os.environ.get("WEATHER_KEY")
+    tian_api = os.environ.get("TIAN_API")
     try:
         with open("config.txt", encoding="utf-8") as f:
             config = eval(f.read())
@@ -357,7 +357,11 @@ if __name__ == "__main__":
         print("推送消息失败，请检查配置文件格式是否正确")
         #  os.system("pause")
         sys.exit(1)
-
+    config["app_id"] = app_id
+    config["app_secret"] = app_secret
+    config["template_id"] = template_id
+    config["weather_key"] = weather_key
+    config["tian_api"] = tian_api
     # 获取accessToken
     accessToken = get_access_token()
     # 接收的用户
