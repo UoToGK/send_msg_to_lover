@@ -217,7 +217,19 @@ def case_youdao():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
     }
-    res = get(yd_url, headers=headers).json()
+    res = None
+    for _ in range(5):
+        try:
+            res = get(yd_url, headers=headers).json()
+        except Exception:
+            continue
+        if res:
+            break
+    if res is None:
+        return (
+            "不管你去哪里，我都会在你身边，永远支持你。",
+            "No matter where you go, I'm in your corner and I always will be.",
+        )
     for record in res[today]:
         if record["type"] == "壹句":
             result["date"] = today
@@ -229,12 +241,12 @@ def case_youdao():
 
 
 def get_ciba():
-    url = "https://api.xygeng.cn/one"
-    headers = {
-        "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
-    }
+    # url = "https://api.xygeng.cn/one"
+    # headers = {
+    #     "Content-Type": "application/json",
+    #     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    #     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+    # }
     # r = post(url, headers=headers)
     # note_en = r.json()["data"]["content"]
     note_en, note_ch = case_youdao()
