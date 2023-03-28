@@ -30,5 +30,5 @@ jobs:
               uses: hisasann/simple-github-auto-push@main
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                BRANCH_NAME: dev
+                BRANCH_NAME: main
               
